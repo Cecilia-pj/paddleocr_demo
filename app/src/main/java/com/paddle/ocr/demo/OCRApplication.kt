@@ -63,7 +63,8 @@ class OCRApplication : Application() {
         applicationScope.launch {
             try {
                 if (!OpenCVUtils.init(this@OCRApplication)) {
-                    throw IllegalStateException("Failed to initialize OpenCV native library")
+                    val detail = OpenCVUtils.lastError ?: "Unknown error"
+                    throw IllegalStateException("Failed to initialize OpenCV native library: $detail")
                 }
                 val loadedOcr = PaddleOCR.create(
                     context = this@OCRApplication,
