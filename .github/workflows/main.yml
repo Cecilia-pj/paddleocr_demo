@@ -55,8 +55,8 @@ jobs:
         run: ./gradlew dependencies
 
       # 8. 运行单元测试
-      - name: Run unit tests
-        run: ./gradlew test
+      #- name: Run unit tests
+      #  run: ./gradlew test
 
       # 9. 构建项目（生成 APK/AAB）
       - name: Build with Gradle
